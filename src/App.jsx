@@ -37,7 +37,7 @@ const PRODUCTS = [
     badge: "BESTSELLER",
     rating: "4.9",
     description: "Hand-finished golden diyas that bring a warm festive glow to every corner of your home.",
-    image: "/images/products/golden-diya.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/golden-diya.jpg`,
     accent: "#e8b65d"
   },
   {
@@ -49,7 +49,7 @@ const PRODUCTS = [
     badge: "GLOW PICK",
     rating: "4.8",
     description: "A beautiful cascade of warm lights for balconies, windows and celebration spaces.",
-    image: "/images/products/festive-led-lights.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/festive-led-lights.jpg`,
     accent: "#f3d47b"
   },
   {
@@ -61,7 +61,7 @@ const PRODUCTS = [
     badge: "GIFT FAVOURITE",
     rating: "5.0",
     description: "A thoughtfully curated festive gift box, made to turn every little moment into a memory.",
-    image: "/images/products/royal-gift-box.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/royal-gift-box.jpg`,
     accent: "#dba34f"
   },
   {
@@ -73,7 +73,7 @@ const PRODUCTS = [
     badge: "NEW ARRIVAL",
     rating: "4.7",
     description: "Vibrant marigold-inspired decor to give your doorway and celebrations a joyful welcome.",
-    image: "/images/products/marigold-decor.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/marigold-decor.jpg`,
     accent: "#f28c35"
   },
   {
@@ -85,7 +85,7 @@ const PRODUCTS = [
     badge: "FESTIVE PICK",
     rating: "4.8",
     description: "Create colourful festive patterns with an easy-to-use rangoli kit for your home entrance.",
-    image: "/images/products/rangoli-kit.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/rangoli-kit.jpg`,
     accent: "#db72a5"
   },
   {
@@ -97,7 +97,7 @@ const PRODUCTS = [
     badge: "LIMITED EDITION",
     rating: "4.9",
     description: "A premium celebration hamper filled with thoughtful festive treats and beautiful details.",
-    image: "/images/products/celebration-hamper.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/celebration-hamper.jpg`,
     accent: "#9dbe78"
   },
   {
@@ -109,7 +109,7 @@ const PRODUCTS = [
     badge: "ARTISAN MADE",
     rating: "4.8",
     description: "A timeless brass thali set that adds an elegant touch to your festive rituals.",
-    image: "/images/products/brass-pooja-thali.jpg",
+    image: `${import.meta.env.BASE_URL}images/products/brass-pooja-thali.jpg`,
     accent: "#d7a54d"
   },
   {
@@ -121,7 +121,7 @@ const PRODUCTS = [
     badge: "TRENDING",
     rating: "4.9",
     description: "Turn an ordinary wall into a magical festive backdrop with soft starry curtain lights.",
-    image: "/images/products/curtain-lights.jpg",
+       image: `${import.meta.env.BASE_URL}images/products/curtain-lights.jpg`,
     accent: "#8eb8d8"
   }
 ];
