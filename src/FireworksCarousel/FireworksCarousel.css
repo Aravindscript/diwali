@@ -1,0 +1,405 @@
+
+.spark-fireworks-section {
+  --firework-accent: #ffc65b;
+  position: relative;
+  width: 100%;
+  padding: 100px 6% 85px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 48%, #34251d 0%, #1a1312 45%, #100d0d 100%);
+  color: #fff;
+  isolation: isolate;
+}
+
+.spark-fireworks-section::before,
+.spark-fireworks-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.spark-fireworks-section::before {
+  width: 420px;
+  height: 420px;
+  top: 20%;
+  left: 35%;
+  background: var(--firework-accent);
+  opacity: .10;
+  filter: blur(120px);
+  transition: background .5s;
+}
+
+.spark-fireworks-section::after {
+  inset: 0;
+  opacity: .15;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff 50%, transparent 100%),
+    radial-gradient(2px 2px at 70% 20%, #fff 50%, transparent 100%),
+    radial-gradient(2px 2px at 80% 70%, #fff 50%, transparent 100%);
+  background-size: 220px 220px;
+}
+
+.spark-fireworks-heading {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+}
+
+.spark-fireworks-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #e8bd78;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.spark-fireworks-heading h2 {
+  margin-top: 17px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 500;
+}
+
+.spark-fireworks-heading h2 em {
+  color: #e8bd78;
+}
+
+.spark-fireworks-heading p {
+  margin-top: 12px;
+  color: #b8aaa0;
+  font-size: 13px;
+}
+
+.spark-carousel-stage {
+  position: relative;
+  height: 440px;
+  max-width: 1100px;
+  margin: 25px auto 0;
+  perspective: 1200px;
+}
+
+.spark-carousel-glow {
+  position: absolute;
+  width: 340px;
+  height: 260px;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--firework-accent);
+  opacity: .13;
+  filter: blur(90px);
+  border-radius: 50%;
+  transition: background .5s;
+}
+
+.spark-carousel {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.spark-carousel-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 270px;
+  height: 340px;
+  margin-left: -135px;
+  margin-top: -170px;
+  border: 0;
+  padding: 12px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform:
+  translate3d(var(--card-x), 0, var(--card-depth))
+  rotateY(var(--card-rotation))
+  scale(var(--card-scale));
+  opacity: .65;
+  transition:
+    transform .85s cubic-bezier(.2,.75,.25,1),
+    opacity .65s ease,
+    filter .5s ease;
+  will-change: transform;
+}
+
+.spark-carousel-card:nth-child(1) {
+  z-index: 5;
+}
+
+.spark-carousel-card:nth-child(2),
+.spark-carousel-card:nth-child(3),
+.spark-carousel-card:nth-child(4),
+.spark-carousel-card:nth-child(5) {
+  z-index: 3;
+}
+
+.spark-carousel-card.spark-card-active {
+  z-index: 10;
+  opacity: 1;
+  filter: drop-shadow(0 0 25px var(--firework-accent));
+}
+
+.spark-carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.spark-card-number {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  color: rgba(255,255,255,.5);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.spark-carousel-arrows {
+  position: absolute;
+  width: min(760px, 95%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.spark-carousel-arrows button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: .3s;
+}
+
+.spark-carousel-arrows button:hover {
+  background: #e8bd78;
+  color: #17100d;
+  border-color: #e8bd78;
+}
+
+.spark-carousel-details {
+  max-width: 700px;
+  margin: -5px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  position: relative;
+  z-index: 12;
+}
+
+.spark-current-info {
+  animation: sparkInfoIn .4s ease both;
+}
+
+@keyframes sparkInfoIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spark-current-info > span {
+  color: #e8bd78;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.spark-current-info h3 {
+  margin-top: 7px;
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.spark-current-info p {
+  max-width: 390px;
+  margin-top: 7px;
+  color: #b8aaa0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.spark-carousel-counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c7b8aa;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.spark-carousel-counter > span:first-child {
+  color: #fff;
+}
+
+.spark-carousel-counter > div {
+  width: 90px;
+  height: 2px;
+  background: rgba(255,255,255,.2);
+}
+
+.spark-carousel-counter i {
+  display: block;
+  height: 100%;
+  background: #e8bd78;
+  transition: width .4s;
+}
+
+.spark-carousel-bottom {
+  max-width: 1050px;
+  margin: 35px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  position: relative;
+  z-index: 15;
+}
+
+.spark-carousel-names {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+}
+
+.spark-carousel-names button,
+.spark-autoplay {
+  padding: 11px 15px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+  color: #b8aaa0;
+  border-radius: 30px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.spark-carousel-names button span {
+  margin-right: 7px;
+  color: #e8bd78;
+}
+
+.spark-carousel-names button:hover,
+.spark-carousel-names button.spark-name-active {
+  border-color: #e8bd78;
+  color: #fff;
+  background: rgba(232,189,120,.12);
+}
+
+.spark-autoplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.spark-autoplay:hover {
+  border-color: #e8bd78;
+  color: #e8bd78;
+}
+
+@media (max-width: 700px) {
+  .spark-fireworks-section {
+    padding: 75px 4% 65px;
+  }
+
+  .spark-fireworks-heading h2 {
+    font-size: 39px;
+  }
+
+  .spark-fireworks-heading p {
+    font-size: 11px;
+  }
+
+  .spark-carousel-stage {
+    height: 330px;
+    margin-top: 15px;
+  }
+
+  .spark-carousel-card {
+    width: 190px;
+    height: 260px;
+    margin-left: -95px;
+    margin-top: -130px;
+    transform:
+      translate3d(
+        calc(var(--card-offset) * 115px),
+        0,
+        var(--card-depth)
+      )
+      rotateY(var(--card-rotation))
+      scale(var(--card-scale));
+  }
+
+  .spark-carousel-glow {
+    width: 230px;
+    height: 180px;
+  }
+
+  .spark-carousel-arrows {
+    width: 96%;
+  }
+
+  .spark-carousel-arrows button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .spark-carousel-details {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 0;
+    gap: 18px;
+  }
+
+  .spark-current-info h3 {
+    font-size: 27px;
+  }
+
+  .spark-current-info p {
+    font-size: 11px;
+  }
+
+  .spark-carousel-bottom {
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+  .spark-carousel-names {
+    gap: 6px;
+  }
+
+  .spark-carousel-names button {
+    padding: 9px 10px;
+    font-size: 9px;
+  }
+
+  .spark-autoplay {
+    padding: 9px 14px;
+  }
+}

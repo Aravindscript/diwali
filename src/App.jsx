@@ -26,6 +26,7 @@ import {
 } from "react-icons/fa";
 
 import "./style.css";
+import FireworksCarousel from "./FireworksCarousel/FireworksCarousel";
 
 const PRODUCTS = [
   {
@@ -945,6 +946,8 @@ export default function App() {
           </div>
 
         </section>
+        
+         <FireworksCarousel />
 
         {/* COLLECTION SECTION */}
 
